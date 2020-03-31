@@ -33,12 +33,9 @@ train_images_1 = keras.backend.eval(train_images_1)
 test_images_1 = keras.backend.eval(test_images_1)
 fourier_images = keras.backend.eval(fourier_images)
 
-# First half of inputs/outputs is real part, second half is imaginary part
 X = train_images_1
 Y = fourier_images
 
-# Create model with no hidden layers, same number of outputs as inputs.
-# No bias needed.  No activation function, since FFT is linear.
 model = Sequential()
 model.add(Input(shape=(28,28,1)))
 model.add(Dense(N, use_bias=False))
